@@ -10,6 +10,9 @@ def shell_sort(arr):
     # with prev_ele = ele - gap 
         for i in range(gap, n):
             j = i
+            print(f"gap: {gap}")
+            print(f"i: {i}")
+            print(f"j: {j}")
             while j >= gap and arr[j] < arr[j-gap]:
                 # swap
                 temp = arr[j]
