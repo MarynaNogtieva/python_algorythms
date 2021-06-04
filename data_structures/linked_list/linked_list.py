@@ -39,6 +39,9 @@ class LinkedList:
         if index >= self.length:
             self.append(value)
             return
+        elif index <= 0:
+            self.prepend(value)
+            return
 
         # node that will be before the newly inserted node
         prev_node = self.traverse_to_index(index-1)
@@ -75,4 +78,5 @@ ll.append(4)
 ll.prepend(11)
 ll.insert(23, 2)
 ll.insert(26, 10)
+ll.insert(7,0)
 ll.print_linked_list()
