@@ -35,11 +35,34 @@ class LinkedList:
             self.tail = self.head
         self.length += 1
 
+    def insert(self, value, index):
+        if index >= self.length:
+            self.append(value)
+            return
+
+        prev_node = self.traverse_to_index(index-1)
+        new_node = Node(value)
+       
+      
+        holding_pointer = prev_node.next
+        prev_node.next = new_node
+        new_node.next = holding_pointer
+
+        self.length += 1
+
+
     def print_linked_list(self):
         current = self.head
         while(current):
             print(current.value)
             current = current.next
+    
+    def traverse_to_index(self, index):
+        current_node = self.head
+        for i in range(index):
+            # print(f"current_node: {current_node.value}, index: {i}")
+            current_node = current_node.next 
+        return current_node
 
 
 ll = LinkedList()
@@ -47,6 +70,7 @@ ll = LinkedList()
 ll.append(1)
 ll.append(5)
 ll.append(4)
-ll.print_linked_list()
 ll.prepend(11)
+ll.insert(23, 2)
+ll.insert(26, 10)
 ll.print_linked_list()
