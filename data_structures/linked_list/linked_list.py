@@ -54,6 +54,20 @@ class LinkedList:
         new_node.next = holding_pointer
 
         self.length += 1
+    
+    def remove(self, index):
+        if index <= 0: 
+            new_head = self.head.next
+            self.head = new_head
+        elif index > self.length:
+            index = self.length-2
+
+        prev_node = self.traverse_to_index(index -1)
+        node_to_remove = prev_node.next
+        next_node = node_to_remove.next
+        prev_node.next = next_node
+
+        self.length -= 1
 
 
     def print_linked_list(self):
@@ -72,6 +86,7 @@ class LinkedList:
 
 ll = LinkedList()
 # ll.prepend(11)
+print("--------ADD---------")
 ll.append(1)
 ll.append(5)
 ll.append(4)
@@ -79,4 +94,9 @@ ll.prepend(11)
 ll.insert(23, 2)
 ll.insert(26, 10)
 ll.insert(7,0)
+ll.print_linked_list()
+print("--------REMOVE---------")
+ll.remove(-2)
+ll.remove(1)
+ll.remove(90)
 ll.print_linked_list()
