@@ -40,10 +40,12 @@ class LinkedList:
             self.append(value)
             return
 
+        # node that will be before the newly inserted node
         prev_node = self.traverse_to_index(index-1)
         new_node = Node(value)
        
-      
+        # holding_pointer - node that occupies given index
+        # and will be located after the newly inserted node
         holding_pointer = prev_node.next
         prev_node.next = new_node
         new_node.next = holding_pointer
