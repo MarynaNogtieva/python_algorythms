@@ -69,12 +69,49 @@ class LinkedList:
 
         self.length -= 1
 
+    def reverse(self):
+        if not self.head.next:
+            return
+
+        first = self.head
+        self.tail = self.head
+        second = first.next
+        print(f"first: {first.value}")
+        print(f"head: {self.head.value}")
+        print(f"tail: {self.tail.value}")
+        print(f"second: {second.value}")
+        while (second):
+            print("-----START LOOP---------")
+            temp = second.next
+            if temp: print(f"temp: {temp.value}")
+            second.next = first
+            print(f"second.next: {second.next.value}")
+            first = second
+            print(f"first: {first.value}")
+            second = temp
+            if second: print(f"second: {second.value}")
+            if temp: print(f"end temp: {temp.value}")
+            print("-----END LOOP---------")
+        
+        print(f"before None - self.head.next.value: {self.head.next.value}")
+        print(f"before None - self.tail.value: {self.tail.value}")
+        print(f"before None - self.tail.next.value: {self.tail.next.value}")
+        self.head.next = None
+        print(f"after None - self.tail.value: {self.tail.value}")
+        
+        self.head = first
+        print(f"self.head: {self.head.value}")
+        print(f"after - self.head.next: {self.head.next.value}")
+        
+
 
     def print_linked_list(self):
         current = self.head
+        arr = []
         while(current):
-            print(current.value)
+            arr.append(current.value)
             current = current.next
+        print(arr)
     
     def traverse_to_index(self, index):
         current_node = self.head
@@ -99,4 +136,7 @@ print("--------REMOVE---------")
 ll.remove(-2)
 ll.remove(1)
 ll.remove(90)
+ll.print_linked_list()
+print("--------REVERSE---------")
+ll.reverse()
 ll.print_linked_list()
