@@ -59,8 +59,9 @@ class LinkedList:
         if index <= 0: 
             new_head = self.head.next
             self.head = new_head
+            return
         elif index > self.length:
-            index = self.length-2
+            index = self.length-1
 
         prev_node = self.traverse_to_index(index -1)
         node_to_remove = prev_node.next
@@ -133,10 +134,10 @@ ll.insert(26, 10)
 ll.insert(7,0)
 ll.print_linked_list()
 print("--------REMOVE---------")
-ll.remove(-2)
-ll.remove(1)
+# ll.remove(-2)
+# ll.remove(1)
 ll.remove(90)
 ll.print_linked_list()
-print("--------REVERSE---------")
-ll.reverse()
-ll.print_linked_list()
+# print("--------REVERSE---------")
+# ll.reverse()
+# ll.print_linked_list()
